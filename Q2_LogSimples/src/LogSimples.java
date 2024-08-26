@@ -5,9 +5,21 @@ import java.util.List;
 
 public class LogSimples implements Iterable<String>{
     private List<String> mensagens;
+    public static LogSimples instance;
 
-    public LogSimples(){
+    private LogSimples(){
         mensagens = new LinkedList<>();
+    }
+
+    public static LogSimples getInstance(){
+        if(instance == null){
+            instance = new LogSimples();
+        }
+        return instance;
+    }
+
+    public Object clone() throws CloneNotSupportedException{
+        throw new CloneNotSupportedException();
     }
 
     public void log(String m){
